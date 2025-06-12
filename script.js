@@ -2,7 +2,7 @@ const url = "https://api.openweathermap.org/data/2.5/weather";
 const apiKey = "f00c38e0279b7bc85480c3fe775d518c";
 
 $(document).ready(function () {
-  weatherFn("Noida"); // Set Noida as the initial city
+  weatherFn("Noida"); 
 });
 
 async function weatherFn(cName) {
@@ -22,13 +22,13 @@ async function weatherFn(cName) {
 
 function weatherShowFn(data) {
   $("#city-name").text(data.name);
-  $("#date").text(moment().format("MMMM Do YYYY, h:mm:ss a")); // Corrected date format to include year
-  $("#temperature").html(`${Math.round(data.main.temp)}°C`); // Rounded temperature
+  $("#date").text(moment().format("MMMM Do YYYY, h:mm:ss a")); 
+  $("#temperature").html(`${Math.round(data.main.temp)}°C`); 
   $("#description").text(data.weather[0].description);
   $("#wind-speed").html(`Wind Speed: ${data.wind.speed} m/s`);
   $("#weather-icon").attr(
     "src",
     `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-  ); // Corrected icon URL
+  );
   $("#weather-info").fadeIn();
 }
